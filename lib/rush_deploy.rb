@@ -1,0 +1,1 @@
+require 'rush_deploy/rush_deploy'
