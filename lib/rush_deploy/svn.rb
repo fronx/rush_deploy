@@ -1,11 +1,9 @@
 class SVN
   def self.current_revision
-    `svn info`.grep(/^Revision: /).first.split(': ')[1]
+    `svn info`.grep(/^Revision: /).first.split(': ')[1].chomp
   end
   
   def self.url
-    "http://svn2.assembla.com/svn/fronx"
+    `svn info`.grep(/^URL: /).first.split(': ')[1].chomp
   end
 end
-
-# puts SVN.current_revision
