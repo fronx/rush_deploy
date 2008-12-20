@@ -1,0 +1,20 @@
+rush_deploy
+===========
+
+Example
+=======
+
+require 'rush_deploy'
+
+desc "Deploy via Rush"
+task :deploy => :environment do
+  remote = RushDeploy.new(
+    :host => 'user@mydomain.com',
+    :path => '/home/rails/projects/abc/'
+  )
+  remote.run [
+    'svn up',
+    'rake db:migrate',
+    'touch tmp/restart.txt',
+  ]
+end
