@@ -7,6 +7,11 @@ module RushDeploy
       return nil if options[:host].blank? || options[:path].blank?
       @server = Rush::Box.new(options[:host])
       @dir = @server[options[:path]].create
+      update_deploy_file
+    end
+    
+    def update_deploy_file
+      @dir['lib/tasks/deploy.rake'].destroy
       Local.deploy_file.copy_to @dir['lib/tasks/']
     end
     
