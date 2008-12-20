@@ -47,7 +47,7 @@ module RushDeploy
     end
     
     def self.set_rollback_marker(current_migration_version)
-      dir['deploy_info'].write(SVN.current_revision + current_migration_version.to_s)
+      dir['deploy_info'].write(SVN.current_revision + "\n" + current_migration_version.to_s)
     end
     
     def self.last_revision
