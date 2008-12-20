@@ -1,6 +1,5 @@
 require 'rubygems'
 require 'rush'
-require '../core_extensions'
 
 module RushDeploy
   class Remote
